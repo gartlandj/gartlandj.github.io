@@ -413,43 +413,6 @@ h3 {
 }
 
 
-.portrait-frame {
-  position: relative;
-  display: inline-block;
-  max-width: 420px;
-  margin: 0 auto;
-}
-
-.portrait-frame::before {
-  content: '';
-  position: absolute;
-  inset: -14px;
-  border: 2px solid var(--accent);
-  border-radius: var(--radius);
-  transform: rotate(-2.5deg);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.portrait-img {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius);
-  object-fit: cover;
-  display: block;
-
-  /* Placeholder styling when image is missing */
-  background-color: var(--surface-raised);
-  min-height: 300px;
-}
-
-/* Portrait placeholder when image doesn't exist yet */
-.portrait-img[src="assets/portrait.webp"]:not([complete]),
-.portrait-img[src="assets/portrait.webp"][naturalWidth="0"] {
-  background: linear-gradient(135deg, var(--surface-raised) 0%, rgba(255,92,53,0.08) 100%);
-}
 
 /* =============================================================
    GALLERY
@@ -802,16 +765,8 @@ footer {
    ============================================================= */
 @media (min-width: 768px) {
   .about-inner {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .about-portrait {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .portrait-frame {
-    margin: 0;
+    grid-template-columns: 1fr;
+    max-width: 720px;
   }
 }
 
@@ -891,12 +846,6 @@ footer {
 /* =============================================================
    RESPONSIVE — 1024px+
    ============================================================= */
-@media (min-width: 1024px) {
-  .about-inner {
-    grid-template-columns: 1fr 420px;
-    gap: 6rem;
-  }
-}
 
 /* =============================================================
    REDUCED MOTION
