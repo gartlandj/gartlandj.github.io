@@ -181,3 +181,26 @@ class Lightbox {
 if (document.getElementById('gallery-grid')) {
   new Lightbox();
 }
+
+// =============================================================
+// 7. GALLERY EXPAND
+// =============================================================
+const expandBtn  = document.getElementById('gallery-expand-btn');
+const galleryMore = document.getElementById('gallery-more');
+
+if (expandBtn && galleryMore) {
+  expandBtn.addEventListener('click', () => {
+    const isOpen = galleryMore.classList.toggle('is-open');
+    expandBtn.setAttribute('aria-expanded', String(isOpen));
+    galleryMore.setAttribute('aria-hidden', String(!isOpen));
+    // Update label (last text node in button)
+    const textNode = [...expandBtn.childNodes].find(n => n.nodeType === 3 && n.textContent.trim());
+    if (textNode) textNode.textContent = isOpen ? ' Show less' : ' Show more photos';
+    // Trigger reveal observer on newly visible items
+    if (isOpen) {
+      galleryMore.querySelectorAll('[data-reveal]:not(.visible)').forEach(el => {
+        revealObserver.observe(el);
+      });
+    }
+  });
+}
