@@ -174,6 +174,40 @@
     .botcheck {
       display: none !important;
     }
+
+    /* Success confirmation panel */
+    .success-panel {
+      max-width: 540px;
+      margin-top: 2rem;
+      padding: 2.5rem 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-align: center;
+    }
+    .success-icon {
+      width: 3rem;
+      height: 3rem;
+      line-height: 3rem;
+      border-radius: 50%;
+      background: color-mix(in srgb, #b8f564 15%, transparent);
+      border: 1px solid color-mix(in srgb, #b8f564 40%, transparent);
+      color: #b8f564;
+      font-size: 1.375rem;
+      margin: 0 auto 1.25rem;
+    }
+    .success-panel h2 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.6rem;
+    }
+    .success-panel p {
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
@@ -229,6 +263,12 @@
         <button type="submit" class="btn-submit" id="submitBtn">Send Message</button>
       </form>
 
+      <div class="success-panel" id="successPanel" hidden>
+        <div class="success-icon" aria-hidden="true">&#10003;</div>
+        <h2>Message received!</h2>
+        <p>Thanks for reaching out. We'll get back to you at the email you provided as soon as we can.</p>
+      </div>
+
       <footer class="legal-footer">
         <p>Also see our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.</p>
       </footer>
@@ -240,6 +280,7 @@
     const form = document.getElementById('supportForm');
     const statusEl = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
+    const successPanel = document.getElementById('successPanel');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -260,9 +301,8 @@
         const json = await res.json();
 
         if (json.success) {
-          statusEl.className = 'form-status success';
-          statusEl.textContent = 'Message sent! We'll be in touch soon.';
-          form.reset();
+          form.hidden = true;
+          successPanel.hidden = false;
         } else {
           throw new Error(json.message || 'Submission failed.');
         }
