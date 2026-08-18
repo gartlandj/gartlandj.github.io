@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Privacy Policy — Logr</title>
+
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .legal-header {
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    .legal-header .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+      transition: color var(--transition);
+    }
+    .legal-header .back-link:hover {
+      color: var(--accent);
+    }
+    .legal-header .app-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .legal-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .legal-header .effective-date {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .legal-content {
+      max-width: 720px;
+      padding-bottom: 6rem;
+    }
+    .legal-content h2 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .legal-content h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .legal-content p {
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .legal-content p:last-child {
+      margin-bottom: 0;
+    }
+    .legal-content ul {
+      color: var(--text-secondary);
+      line-height: 1.75;
+      padding-left: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .legal-content ul li {
+      margin-bottom: 0.35rem;
+    }
+    .legal-footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.8125rem;
+    }
+    .legal-footer a {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+
+    <header class="legal-header">
+      <p class="app-label">Logr</p>
+      <h1>Privacy Policy</h1>
+      <p class="effective-date">Effective Date: August 18, 2026</p>
+    </header>
+
+    <div class="legal-content">
+
+      <h2>1. Introduction</h2>
+      <p>This Privacy Policy explains how the developer of Logr ("we," "us," or "our") handles your information when you use the Logr mobile application (the "App"). Logr is a private journal for logging encounters — who, where, when, what, a rating, and notes — along with the people you've met and statistics drawn from your own entries.</p>
+      <p>Logr is built for intimate, sensitive information, and it is designed from the ground up so that nobody but you ever sees it. The short version: <strong>we do not collect any of your data.</strong> The App has no account system, no servers, no analytics, no ads, and no third-party SDKs. Everything you enter stays on your device and in your own private iCloud database.</p>
+
+      <h2>2. Information We Collect</h2>
+      <p>We do not collect, receive, transmit, or have access to any of your personal information. The App does not require an account or sign-in, and it does not include analytics, advertising, or tracking of any kind. The App's privacy manifest declares no collected data types and no tracking domains.</p>
+      <p>Information you enter in the App — including encounter dates and times, people's names and nicknames, how you met them, locations, activity tags, ratings, and freeform notes — is stored only on your device and, if you have iCloud enabled, in your private iCloud database. This data never touches our servers, because we don't have any.</p>
+      <p>We understand that a log of this kind can include information about your sex life and sexual orientation. That information is never transmitted to us, never shared with any third party, and never used for any purpose other than showing it back to you inside the App.</p>
+
+      <h2>3. Data Storage and iCloud Sync</h2>
+      <p>Your entries are stored locally on your device using Apple's SwiftData framework. If you are signed in to iCloud, the App also syncs them to your <em>private</em> iCloud database via Apple's CloudKit service, so your log is backed up and available across your devices. This private database is controlled by your Apple ID; we cannot read, access, or recover its contents. If iCloud is unavailable or you are not signed in, the App stores your data on your device only.</p>
+      <p>A small number of preferences — whether you've completed onboarding, whether the app lock is enabled, and your customized activity tag and "met via" lists — are stored in the App's own settings storage on your device.</p>
+      <p>Apple's handling of your iCloud data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple's Privacy Policy</a>.</p>
+
+      <h2>4. App Lock and Face ID</h2>
+      <p>Logr offers an optional app lock that requires Face ID, Touch ID, or your device passcode before your log can be viewed, and blurs the App's contents whenever it moves to the background. Authentication is performed entirely by iOS: your biometric data never leaves the Secure Enclave on your device, is never accessible to the App, and is never transmitted anywhere. The App only receives a yes-or-no result. This feature is optional, and permission can be revoked at any time in your device's Settings.</p>
+
+      <h2>5. Import and Export</h2>
+      <p>You can export your log to a CSV file, or import one, from Settings &rsaquo; Your data. These are actions you start yourself, and the file goes only where you choose to save or share it through iOS. Exported CSV files are plain, unencrypted text containing your entries, so store or share them with the same care you'd give any private document. We never see the file, and no copy is sent to us.</p>
+
+      <h2>6. Data Sharing and Disclosure</h2>
+      <p>We do not sell, trade, rent, or share your personal information with anyone — because we never possess it in the first place. There is no server to subpoena and no database on our end to disclose.</p>
+
+      <h2>7. Your Rights and Choices</h2>
+      <p>Because your data lives only on your device and in your private iCloud database, you have direct control over it:</p>
+      <ul>
+        <li>You can view and edit all of your data within the App at any time</li>
+        <li>You can delete individual entries or people within the App</li>
+        <li>You can erase everything at once from Settings &rsaquo; Your data</li>
+        <li>You can export a copy of your data as a CSV file at any time</li>
+        <li>You can delete all App data by deleting the App and removing its iCloud data in Settings &rsaquo; [your name] &rsaquo; iCloud &rsaquo; Manage Account Storage</li>
+      </ul>
+      <p>No deletion request to us is necessary — we have nothing to delete on our end.</p>
+
+      <h2>8. Data Retention</h2>
+      <p>We do not retain any of your data. Your information persists on your device and in your private iCloud database until you delete it, entirely under your control.</p>
+
+      <h2>9. Children's Privacy</h2>
+      <p>Logr is intended for adults only and is rated accordingly on the App Store. It is not directed at children, and because the App collects no personal information from anyone, it does not collect personal information from children.</p>
+
+      <h2>10. Third-Party Services</h2>
+      <p>The App does not integrate any third-party SDKs or services other than Apple's own frameworks (SwiftData, CloudKit, and local authentication). The App makes no network requests of its own.</p>
+
+      <h2>11. Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the updated policy at this page and updating the "Effective Date" above. Your continued use of the App after such changes constitutes your acceptance of the updated policy.</p>
+
+      <h2>12. Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy, you can reach us at <a href="mailto:jackgartland@gmail.com">jackgartland@gmail.com</a>.</p>
+
+      <footer class="legal-footer">
+        <p>Logr &mdash; a private journal that stays private.</p>
+      </footer>
+
+    </div>
+  </main>
+</body>
+</html>
