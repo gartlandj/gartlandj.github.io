@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Support — Logr</title>
+
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .legal-header {
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    .legal-header .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+      transition: color var(--transition);
+    }
+    .legal-header .back-link:hover {
+      color: var(--accent);
+    }
+    .legal-header .app-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .legal-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .legal-header .effective-date {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .legal-content {
+      max-width: 720px;
+      padding-bottom: 6rem;
+    }
+    .legal-content p {
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .legal-footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.8125rem;
+    }
+    .legal-footer a {
+      color: var(--accent);
+    }
+
+    /* Support form */
+    .support-form {
+      max-width: 540px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.65rem 0.875rem;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      box-sizing: border-box;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.875rem center;
+      padding-right: 2.25rem;
+    }
+    .form-group textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--text-secondary);
+      opacity: 0.5;
+    }
+    .btn-submit {
+      align-self: flex-start;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.7rem 1.75rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .btn-submit:hover:not(:disabled) {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+    .btn-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .form-status {
+      display: none;
+      padding: 0.875rem 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .form-status.success {
+      display: block;
+      background: color-mix(in srgb, #b8f564 12%, transparent);
+      border: 1px solid color-mix(in srgb, #b8f564 40%, transparent);
+      color: #b8f564;
+    }
+    .form-status.error {
+      display: block;
+      background: color-mix(in srgb, #ff5c35 12%, transparent);
+      border: 1px solid color-mix(in srgb, #ff5c35 40%, transparent);
+      color: #ff5c35;
+    }
+    /* Hide honeypot */
+    .botcheck {
+      display: none !important;
+    }
+
+    /* Success confirmation panel */
+    .success-panel {
+      max-width: 540px;
+      margin-top: 2rem;
+      padding: 2.5rem 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-align: center;
+    }
+    .success-icon {
+      width: 3rem;
+      height: 3rem;
+      line-height: 3rem;
+      border-radius: 50%;
+      background: color-mix(in srgb, #b8f564 15%, transparent);
+      border: 1px solid color-mix(in srgb, #b8f564 40%, transparent);
+      color: #b8f564;
+      font-size: 1.375rem;
+      margin: 0 auto 1.25rem;
+    }
+    .success-panel h2 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.6rem;
+    }
+    .success-panel p {
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+
+    <header class="legal-header">
+      <p class="app-label">Logr</p>
+      <h1>Support</h1>
+      <p class="effective-date">We'll get back to you as soon as possible.</p>
+    </header>
+
+    <div class="legal-content">
+
+      <p>Have a question, found a bug, or want to suggest a feature? Fill out the form below and we'll respond via email.</p>
+      <p>Please don't include any details from your log — this form sends an ordinary email, and nothing you've logged in the App is ever visible to us. A general description of what went wrong is plenty.</p>
+
+      <form class="support-form" id="supportForm">
+        <!-- Web3Forms access key — no email address in source -->
+        <input type="hidden" name="access_key" value="e4eb696d-c543-4e8f-b738-70c8ca590126">
+        <!-- Stay on page after submit (handled via fetch) -->
+        <input type="hidden" name="redirect" value="">
+        <!-- Honeypot spam field -->
+        <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off">
+        <!-- Identify the app in the email -->
+        <input type="hidden" name="from_name" value="Logr Support">
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected>Select a topic…</option>
+            <option value="Bug Report">Bug Report</option>
+            <option value="iCloud Sync Question">iCloud Sync Question</option>
+            <option value="Import / Export">Import / Export (CSV)</option>
+            <option value="App Lock / Face ID">App Lock / Face ID</option>
+            <option value="Feature Request">Feature Request</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Describe your issue or question…"></textarea>
+        </div>
+
+        <div class="form-status" id="formStatus" role="alert" aria-live="polite"></div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Send Message</button>
+      </form>
+
+      <div class="success-panel" id="successPanel" hidden>
+        <div class="success-icon" aria-hidden="true">&#10003;</div>
+        <h2>Message received!</h2>
+        <p>Thanks for reaching out. We'll get back to you at the email you provided as soon as we can.</p>
+      </div>
+
+      <footer class="legal-footer">
+        <p>Also see our <a href="privacy.html">Privacy Policy</a>.</p>
+      </footer>
+
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('supportForm');
+    const statusEl = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+    const successPanel = document.getElementById('successPanel');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      statusEl.className = 'form-status';
+      statusEl.textContent = '';
+
+      const data = Object.fromEntries(new FormData(form));
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+
+        if (json.success) {
+          form.hidden = true;
+          successPanel.hidden = false;
+        } else {
+          throw new Error(json.message || 'Submission failed.');
+        }
+      } catch (err) {
+        statusEl.className = 'form-status error';
+        statusEl.textContent = 'Something went wrong. Please try again or email us directly.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    });
+  </script>
+</body>
+</html>
